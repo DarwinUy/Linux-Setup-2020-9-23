@@ -1,0 +1,326 @@
+Cloud service Model
+	- Advantages: 
+		- Scalability:quick scaling up and down of computing resources to accommodate your changing needs
+		- Affordability: You pay less for a cloud service, as it eliminates unnecessary costs involved in hardware upgrades and maintenance
+		- Secure: essentially making your data more secure using their industry-grade security protocols
+
+	- 3 types of services
+
+		IaaS: Infrastructure as a service
+			- involves Data, Application, Services, Network, Dataframe, OS, Hardware
+			- virtual provision of computing resources over the cloud
+			- offers a standardized way of acquiring computing capabilities on demand and over the web
+			- Such resources include storage facilities, networks, processing power, and virtual private servers
+			- charged under a “pay as you go” model where you are billed by factors such as how much storage you use or the amount of processing power you consume over a certain timespan
+			- customers do not need to manage infrastructure, it is up to the provider to guarantee the contracted amount of resources and availability
+			- Advantages:
+				- Minimize Costs: eliminates the need to deploy on-premise hardware that reduces the costs.
+				- Enhanced Scalability: most flexible cloud computing model, IaaS allows you to scale the computing resources up or down based on demand.
+				- Simple Deployment: easily deploy the servers, processing, storage, and networking to make it up and running in no time
+			- Disadvantages
+				-  downside with IaaS is that it is much costlier than SaaS or PaaS cloud models
+			- Ideal for: if you need control over the hardware infrastructure such as in managing and customizing according to your requirements.
+
+		PaaS: Platform as a service
+			- involves Data, Application
+			- essentially a cloud base where you can develop, test and organize the different applications for your business
+			- halfway between Infrastructure as a Service (IaaS) and Software as a Service (SaaS)
+			- offers access to a cloud-based environment in which users can build and deliver applications without the need of installing and working with IDEs
+			- users can often customize the features they want
+			- PaaS providers offer applications such as Microsoft Azure (also IaaS), Google App Engine, and Apache Stratos
+			- Advantages:
+				- Minimal Development Time: reduces the development time since the vendor provides all computing resources like server-side components, which simplifies the process and improve the focus of the development team
+				- Multiple Programming Language Support
+				- Enhanced Collaboration
+			- Disadvantages
+				- since it is built on virtualized technology, you will have less control over the data processing
+				- it is also less flexible compared to the IaaS cloud model
+			- Ideal for: if your project involves multiple developers and vendors
+			-ex: AWS, GCP, AZURE
+
+		SaaS: Software as a service
+			- quick access to cloud-based web applications
+			- does not require any installations
+			- applications that are accessed over the web and are not managed by your company, but by the software provider
+			- relief from constant pressure of software maintenance, infrastructure management, network security, data availability, and all the other operational issues involved with keeping applications up and running.
+			- billing is typically based on factors such as number of users, usage time, amount of data stored, and number of transactions processed
+			- Current applications for SaaS include Field Service solutions, system monitoring solutions, schedulers and more.
+			- Advantages:
+				- Affordable 
+				- Anywhere Accessibility
+				- Ready to Use
+			- Disadvantages
+				- no control over the hardware allotted
+			- Ideally for: small-scale businesses who do not have the necessary budget and resources to deploy on-premise hardware
+
+
+
+Data Processing Categories
+
+	OLTP: Online transaction processing
+		- captures, stores, and processes data from transactions in real time
+		- transaction involves individual database records made up of multiple fields or columns
+		- the emphasis is on fast processing, because OLTP databases are read, written, and updated frequently
+		- If transaction fails, built-in system logic ensures data integrity
+		- also been used to refer to processing in which the system responds immediately to user requests
+
+			- RDBMS: Relational DataBase Management System
+				- Stores data in structured format, using rows and columns
+				- It is "relational" because the values within each table are related to each other. Tables may also be related to other tables. The relational structure makes it possible to run queries across multiple tables at once
+				- a relational database describes the type of database an RDMBS manages
+				- RDBMS refers to the database program itself
+				- examples: Oracle Database, MySQL, Microsoft SQL Server, and IBM DB2
+			- NOSQL: 
+				- mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases
+				- NoSQL databases are increasingly used in big data and real-time web applications
+				- Motivations:
+					- simplicity of design
+					- simpler "horizontal" scaling to clusters of machines
+					-  finer control over availability and limiting the object-relational impedance mismatch
+				- data structures used by NoSQL databases are different from those used by default in relational databases
+					- Makes NOSQL faster for SOME opperations
+					- allows more flexibility 
+					- e.g. key–value pair, wide column, graph, or document
+				- offer a concept of "eventual consistency", in which database changes are propagated to all nodes "eventually" 
+					-  queries for data might not return updated data immediately or might result in reading data that is not accurate, a problem known as stale reads 
+				- some NoSQL systems may exhibit lost writes and other forms of data loss
+	
+	OLAP: Online analytical processing
+		- uses complex queries to analyze aggregated historical data from OLTP systems
+		- applies complex queries to large amounts of historical data, aggregated from OLTP databases and other sources, for data mining, analytics, and business intelligence projects
+		- the emphasis is on response time to these complex queries
+		- Each query involves one or more columns of data aggregated from many rows
+		- OLAP databases and data warehouses give analysts and decision-makers the ability to use custom reporting tools to turn data into information
+		- Query failure in OLAP does not interrupt or delay transaction processing for customers, but it can delay or impact the accuracy of business intelligence insights
+		- an approach to answer multi-dimensional analytical (MDA) queries swiftly in computing
+		- OLAP consists of three basic analytical operations: consolidation (roll-up), drill-down, and slicing and dicing
+			- consolidation: involves the aggregation of data that can be accumulated and computed in one or more dimensions
+			- drill-down: allows users to navigate through the details
+			- slicing and dicing: feature whereby users can take out (slicing) a specific set of data of the OLAP cube and view (dicing) the slices from different viewpoints. These viewpoints are sometimes called dimensions (such as looking at the same sales by salesperson, or by date, or by customer, or by product, or by region, etc.)
+				- "stratification analysis"
+		- Can come in Various types
+			- Multidimensional OLAP (MOLAP)
+			- Relational OLAP (ROLAP)
+			- Hybrid OLAP (HOLAP)
+			- and some
+
+
+ETL: Extract, Transform, Load
+	- Extract: reading data from a database. In this stage, the data is collected, often from multiple and different types of sources.
+	- Transform: process of converting the extracted data from its previous form into the form it needs to be in so that it can be placed into another database. Transformation occurs by using rules or lookup tables or by combining the data with other data
+	- Load: the process of writing the data into the target database
+
+	+ The data from one or more OLTP databases is ingested into OLAP systems through a process called extract, transform, load (ETL)
+	+ With ETL tool, users can collect data from several sources and send it to a destination, such as an OLAP data warehouse, where it is queried by analytics and business intelligence tools for insights
+	+ the process of writing the data into the target database
+	+ When dealing with large volumes of data and multiple source systems, the data is consolidated.
+	+ is used to migrate data from one database to another, and is often the specific process required to load data to and from data marts and data warehouses, but is a process that is also used to to large convert (transform) databases from one format or type to another
+	
+
+
+SCALABILITY: the property of a system to handle a growing amount of work by adding resources to the system
+	Vertical or Scale Up: means adding resources to (or removing resources from) a single node
+		- typically involving the addition of CPUs, memory or storage to a single computer
+		- used when:
+			- Larger numbers of elements increases management complexity
+			- sometimes more sophisticated programming to allocate tasks among resources is needed
+			- sometimes more sophisticated programming to handle issues such as throughput and latency across nodes
+			- sometimes some applications do not scale horizontally
+	Horizontal or Scale Out: means adding more nodes to (or removing nodes from) a system
+		-  Exploiting this scalability requires software for efficient resource management and maintenance
+
+
+
+
+HADOOP: A DISTRIBUTIVE COMPUTING FRAMEWORK
+
+
+
+REPLICATION: process of storing data in more than one site or node
+	- useful in improving the availability of data
+	- simply copying data from a database from one server to another server so that all the users can share the same data without any inconsistency
+	- result is a distributed database in which users can access data relevant to their tasks without interfering with the work of others
+	- encompasses duplication of transactions on an ongoing basis, so that the replicate is in a consistently updated state and synchronized with the source
+	- in data replication data is available at different locations, but a particular relation has to reside at only one location
+
+	- Advantages: 
+		- provide a consistent copy of data across all the database nodes
+		- increase the availability of data
+		- reliability of data is increased through data replication
+		- Data Replication supports multiple users and gives high performance
+		- To remove any data redundancy,the databases are merged and slave databases are updated with outdated or incomplete data
+		- Since replicas are created there are chances that the data is found itself where the transaction is executing which reduces the data movement
+		- To perform faster execution of queries.
+	- Disadvantages: 	
+		- More storage space is needed as storing the replicas of same data at different sites consumes more space
+		- Data Replication becomes expensive when the replicas at all different sites need to be updated
+		- Maintaining Data consistency at all different sites involves complex measures
+
+	- Types of Replication
+		- Transactional Replication: replication users receive full initial copies of the database and then receive updates AS data changes
+			- copied in real time from the publisher to the receiving database(subscriber) in the same order as they occur with the publisher
+				- therefore transactional consistency is guaranteed
+				- does not simply copy the data changes, but rather consistently and accurately replicates each change
+			- typically used in server-to-server environments
+		- Snapshot Replication: distributes data exactly as it appears at a SPECIFIC moment in time
+			- does not monitor for updates to the data
+			- slower than transactional because on each attempt it moves multiple records from one end to the other end
+			- good way to perform initial synchronization between the publisher and the subscriber
+			- generally used when data changes are infrequent
+		- Merge Replication: two or more databases is combined into a single database
+			- most complex type of replication because it allows both publisher and subscriber to independently make changes to the database
+				- allows changes to be sent from one publisher to multiple subscribers
+			- typically used in server-to-client environments
+	- Replication Schemes
+		- Full Replication: replication of the whole database at every site in the distributed system
+			- Improve the availability of the system because the system can continue to operate as long as atleast one site is up.
+			- Advantages: 
+				- High Availability of Data
+				- Improves the performance for retrieval of global queries as the result can be obtained locally from any of the local site
+				- Faster execution of Queries
+			- Disadvantages: 
+				- Concurrency is difficult to achieve in full replication
+				- Slow update process as a single update must be performed at different databases to keep the copies consistent
+		- No Replication: each fragment is stored at only one site
+			- Advantages: 
+				- The data can be easily recovered.
+				- Concurrency can be achieved in no replication.
+			- Disadvantages: 
+				- Since multiple users are accessing the same server, it may slow down the execution of queries
+				- The data is not easily available as there is no replication
+		- Partial Replication: replication some fragments of the database may be replicated whereas others may not
+			- The description of replication of fragments is sometimes called the replication schema
+			- Advantages: 
+				- The number of copies of the fragment depends upon the importance of data
+
+
+The number of copies of the fragment depends upon the importance of data
+
+FILE STORING SYSTEM
+	- is a hierarchical storage methodology used to organize and store data on a computer hard drive or on network-attached storage (NAS) device
+	- also called file-level or file-based storage
+
+
+	WINDOWS
+		NTFS
+		FAT32
+	UNIX
+		EXT 2
+		EXT 3
+		EXT 4
+
+
+
+HDFS: Hadoop Distributed File System
+
+
+
+HADOOP/ DAEMON PROCESSES
+	NAME NODE
+	DATA NODE
+	SECONDARY NODE
+	RESOURCE MANAGER
+	NODE MANAGER
+
+
+
+ARCHITECTURE
+	MASTER/ SLAVE SYSTEM: A LEADER BASED SYSTEM
+
+
+MAP REDUCE
+
+
+YARN
+
+
+HIGH AVAILABILITY
+
+
+SECURITY
+	KERBEROS
+
+
+
+HIGH AVAILABILITY VS REPLICATION
+
+
+
+HADOOP 
+	SQOOP
+	HIVE
+	FLUME
+	PIG/ PIG LATIN
+	HBASE
+
+
+
+TYPES OF DATA
+	STRUCTURED
+	SEMI STRUCTURED
+	UNSTRUCTURED
+
+
+
+Data vs Information
+	- Data: simply facts or figures — bits of information, but not information itself
+		- the building material of information
+	- Information : When data are processed, interpreted, organized, structured or presented so as to make them meaningful or useful, they are called information
+		- Information provides context for data
+
+
+
+
+
+
+
+
+
+
+
+References:
+
+Cloud service Model
+
+https://www.fingent.com/blog/cloud-service-models-saas-iaas-paas-choose-the-right-one-for-your-business/
+https://blog.pdf2go.com/2017/05/09/what-is-saas/
+https://www.openintl.com/the-three-service-models-of-cloud-computing/#:~:text=Cloud%20computing%20is%20offered%20in,as%20a%20Service%20(IaaS).
+
+
+Data Processing Categories
+
+https://www.stitchdata.com/resources/oltp-vs-olap/
+https://en.wikipedia.org/wiki/Online_transaction_processing
+https://en.wikipedia.org/wiki/Online_analytical_processing
+
+https://techterms.com/definition/rdbms#:~:text=Stands%20for%20%22Relational%20Database%20Management,format%2C%20using%20rows%20and%20columns.
+https://en.wikipedia.org/wiki/NoSQL
+
+
+ETL
+
+https://www.webopedia.com/TERM/E/ETL.html#:~:text=ETL%20is%20short%20for%20extract,and%20different%20types%20of%20sources.
+
+
+SCALABILITY
+
+https://en.wikipedia.org/wiki/Scalability
+
+
+REPLICATION
+
+https://www.geeksforgeeks.org/data-replication-in-dbms/#:~:text=Data%20Replication%20is%20the%20process,same%20data%20without%20any%20inconsistency.
+
+
+
+File Storage
+
+https://searchstorage.techtarget.com/definition/file-system
+
+Data vs Information
+https://www.diffen.com/difference/Data_vs_Information#:~:text=Data%20are%20simply%20facts%20or,Information%20provides%20context%20for%20data.
+
+
+
+
+
